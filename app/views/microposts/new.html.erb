@@ -1,0 +1,14 @@
+<h1>New Micropost</h1>
+
+<%#= render 'form', micropost: @micropost %>
+<%= form_for @micropost do |f| %>
+  Content: <%= f.text_area :content, placeholder: "Content" %>
+  <br/>
+  <br/>
+  User: <%= select("micropost", "user_id", User.all.collect { |u| [ u.name, u.id ] }) %>
+  <br/>
+  <br/>
+  <%= f.submit %>
+<% end %>
+<br/>
+<%= link_to 'Back', microposts_path %>
